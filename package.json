@@ -1,0 +1,36 @@
+{
+  "name": "test-project-aviasales",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "server": "json-server server.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitaBarashkov/Test-project-Aviasales.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikitaBarashkov/Test-project-Aviasales/issues"
+  },
+  "homepage": "https://github.com/NikitaBarashkov/Test-project-Aviasales#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "json-server": "^0.17.1",
+    "mini-css-extract-plugin": "^2.7.2",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1"
+  },
+  "dependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
