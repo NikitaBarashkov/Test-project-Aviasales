@@ -1,52 +1,63 @@
-export function createTicket(obj1, obj2) {
+export function createTicket(obj) {
   document.querySelector('.content').insertAdjacentHTML('beforeend', 
   `
   <div class="ticket">
     <div class="ticket__price">
-      <h3>${obj1.price}</h3>
-      <img src="http://pics.avs.io/99/36/${obj1.carrier}.png" alt="carrier">  
+      <h3>${obj.firstHalf.price}</h3>
+      <img src="http://pics.avs.io/99/36/${obj.firstHalf.carrier}.png" alt="carrier">  
     </div>
     <div class="ticket__info">
       <h3 class="info">
-        ${obj1.origin} - ${obj1.destination}<br>
+        ${obj.firstHalf.origin} - ${obj.firstHalf.destination}<br>
         <span>
-        ${new Date(obj1.startDate).getHours().toString().length == 1 ? 
-            '0' + new Date(obj1.startDate).getHours() :
-            new Date(obj1.startDate).getHours()}:${new Date(obj1.startDate).getMinutes().toString().length == 1 ? 
-            '0' + new Date(obj1.startDate).getMinutes() :
-            new Date(obj1.startDate).getMinutes()} -
-        ${new Date(obj1.endDate()).getHours().toString().length == 1 ?
-            '0' + new Date(obj1.endDate()).getHours() :
-            new Date(obj1.endDate()).getHours()}:${new Date(obj1.endDate()).getMinutes().toString().length == 1 ?
-            '0' + new Date(obj1.endDate()).getMinutes() :
-            new Date(obj1.endDate()).getMinutes()}
+          ${new Date(obj.firstHalf.startDate).getHours().toString().length == 1 ? 
+              '0' + new Date(obj.firstHalf.startDate).getHours() :
+              new Date(obj.firstHalf.startDate).getHours()}:${new Date(obj.firstHalf.startDate).getMinutes().toString().length == 1 ? 
+              '0' + new Date(obj.firstHalf.startDate).getMinutes() :
+              new Date(obj.firstHalf.startDate).getMinutes()} -
+          ${new Date(obj.firstHalf.endDate()).getHours().toString().length == 1 ?
+              '0' + new Date(obj.firstHalf.endDate()).getHours() :
+              new Date(obj.firstHalf.endDate()).getHours()}:${new Date(obj.firstHalf.endDate()).getMinutes().toString().length == 1 ?
+              '0' + new Date(obj.firstHalf.endDate()).getMinutes() :
+              new Date(obj.firstHalf.endDate()).getMinutes()}
         </span>
       </h3>
       <h3 class="info">
         В ПУТИ<br>
-        <span>${obj1.timeWay()[0]}ч ${obj1.timeWay()[1].slice(0, 2)}м</span>
+        <span>${obj.firstHalf.timeWay()[0]}ч ${obj.firstHalf.timeWay()[1].slice(0, 2)}м</span>
       </h3>
       <h3 class="info">
-        ${obj1.conutStops ? obj1.conutStops : 'БЕЗ'} 
-        ${obj1.conutStops == 1 ? 'ПЕРЕСАДКА' : obj1.conutStops == 2 || obj1.conutStops == 3 ? 'ПЕРЕСАДКИ' : 'ПЕРЕСАДОК'}
+        ${obj.firstHalf.conutStops ? obj.firstHalf.conutStops : 'БЕЗ'} 
+        ${obj.firstHalf.conutStops == 1 ? 'ПЕРЕСАДКА' : obj.firstHalf.conutStops == 2 || obj.firstHalf.conutStops == 3 ? 'ПЕРЕСАДКИ' : 'ПЕРЕСАДОК'}
         <br>
-        <span>${obj1.conutStops ? obj1.stopPoints : ''}</span>
+        <span>${obj.firstHalf.conutStops ? obj.firstHalf.stopPoints : ''}</span>
       </h3>
     </div>
     <div class="ticket__info">
       <h3 class="info">
-        ${obj2.origin} - ${obj2.destination}<br>
-        <span></span>
+        ${obj.secondHalf.origin} - ${obj.secondHalf.destination}<br>
+        <span>
+        ${new Date(obj.secondHalf.startDate).getHours().toString().length == 1 ? 
+          '0' + new Date(obj.secondHalf.startDate).getHours() :
+          new Date(obj.secondHalf.startDate).getHours()}:${new Date(obj.secondHalf.startDate).getMinutes().toString().length == 1 ? 
+          '0' + new Date(obj.secondHalf.startDate).getMinutes() :
+          new Date(obj.secondHalf.startDate).getMinutes()} -
+      ${new Date(obj.secondHalf.endDate()).getHours().toString().length == 1 ?
+          '0' + new Date(obj.secondHalf.endDate()).getHours() :
+          new Date(obj.secondHalf.endDate()).getHours()}:${new Date(obj.secondHalf.endDate()).getMinutes().toString().length == 1 ?
+          '0' + new Date(obj.secondHalf.endDate()).getMinutes() :
+          new Date(obj.secondHalf.endDate()).getMinutes()}
+        </span>
       </h3>
       <h3 class="info">
         В ПУТИ<br>
-        <span>${obj2.timeWay()[0]}ч ${obj2.timeWay()[1].slice(0, 2)}м</span>
+        <span>${obj.secondHalf.timeWay()[0]}ч ${obj.secondHalf.timeWay()[1].slice(0, 2)}м</span>
       </h3>
       <h3 class="info">
-        ${obj2.conutStops ? obj2.conutStops : 'БЕЗ'} 
-        ${obj2.conutStops == 1 ? 'ПЕРЕСАДКА' : obj2.conutStops == 2 || obj2.conutStops == 3 ? 'ПЕРЕСАДКИ' : 'ПЕРЕСАДОК'}
+        ${obj.secondHalf.conutStops ? obj.secondHalf.conutStops : 'БЕЗ'} 
+        ${obj.secondHalf.conutStops == 1 ? 'ПЕРЕСАДКА' : obj.secondHalf.conutStops == 2 || obj.secondHalf.conutStops == 3 ? 'ПЕРЕСАДКИ' : 'ПЕРЕСАДОК'}
         <br>
-        <span>${obj2.conutStops ? obj2.stopPoints : ''}</span>
+        <span>${obj.secondHalf.conutStops ? obj.secondHalf.stopPoints : ''}</span>
      </h3>
     </div>
   </div>
