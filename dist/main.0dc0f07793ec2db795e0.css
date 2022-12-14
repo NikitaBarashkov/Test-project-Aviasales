@@ -101,6 +101,8 @@ label:hover {
 .checkbox_hid:checked + label::before {
   border-color: #2196f3;
   background: url(79dcf5e6ee66319e06b8.svg);
+  background: url(3b1980871678fceaffb8.png);
+  background-size: auto;
 }
 
 .content {

@@ -1,5 +1,7 @@
 import '../styles/style.scss';
 import { createTicket } from './createTicket';
+import { getOptions, filterTickets } from './countTransfers';
+import { sortByPrice, sortByTime } from './sortTickets';
 
 const btnCheapTikets = document.querySelector('.btn_cheap-tickets');
 const btnFastTikets = document.querySelector('.btn_fast-tickets'); 
@@ -9,8 +11,8 @@ btnCheapTikets.addEventListener('click', () => {
 })
 
 btnFastTikets.addEventListener('click', () => {
-    changeActiveBtn(btnFastTikets, btnCheapTikets)
-  })
+  changeActiveBtn(btnFastTikets, btnCheapTikets)
+})
 
 function changeActiveBtn(btn1, btn2) {
   btn1.classList.add('btn_active');
@@ -19,32 +21,30 @@ function changeActiveBtn(btn1, btn2) {
   }
 }
 
-// const options = {
-//   all: false,
-//   with1: false,
-//   with2: false,
-//   with3: false,
-//   forFast: false,
-// }
-
-
-// function getOptions() {
-//   const param = document.querySelectorAll('.checkbox_hid')
-//     if (param[0].checked) options[all] = true;
-//     if (param[1].checked) options[with1] = true;
-//     if (param[2].checked) options[with2] = true;
-//     if (param[3].checked) options[with3] = true;
-// }
-
-
 async function getTickets(url) {
+  const outputTikects = document.querySelectorAll('.ticket');
+  if (outputTikects) {
+    outputTikects.forEach(ticket => ticket.remove())
+  } 
+
   const response = await fetch(url);
   const data = await response.json();
   // return data;
   console.log(data)
 
+  // console.log(optionsTransfer);
+
   if (data) { 
-    const tickets = data.sort((a, b) => a.price - b.price).slice(0, 5);
+    const optionsTransfer = getOptions();
+    const response = filterTickets(data, optionsTransfer);
+    // const tickets = filterTickets(data, optionsTransfer);
+    if (document.querySelector('.btn_cheap-tickets').classList.contains('btn_active')) {
+      response.sort(sortByPrice);
+    } else {
+      response.sort(sortByTime);
+    }
+    const tickets = response.slice(0, 5);
+
     console.log(tickets)
 
     for (let key in tickets) {
@@ -98,6 +98,10 @@ async function getTickets(url) {
   }
 }
 
-getTickets('http://localhost:3000/tickets')
+document.getElementById('search').addEventListener('click', () => {
+  getTickets('http://localhost:3000/tickets');
+})
+
+
 
 

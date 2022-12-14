@@ -99,6 +99,8 @@ label:hover {
 .checkbox_hid:checked + label::before {
   border-color: #2196f3;
   background: url('../assets/shape.svg');
+  background: url('../assets/shape-checked.png');
+  background-size: auto;
 } 
 
 .content {
