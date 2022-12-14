@@ -4,6 +4,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  mode: 'development',
   entry: path.resolve(__dirname, 'src', 'app', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -27,6 +28,10 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         use: [MiniCSSExtractPlugin.loader, 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.ttf$/,
+        use: ['file-loader']
       }  
     ]
   }

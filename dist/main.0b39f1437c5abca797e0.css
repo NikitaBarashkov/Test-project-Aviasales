@@ -1,16 +1,18 @@
+/*!****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/style.scss ***!
+  \****************************************************************************************************************/
 * {
   margin: 0;
   padding: 0;
 }
 
 @font-face {
-  font-family: 'Open sans';
-  src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+  font-family: "Open sans";
+  src: url(549b7cbed025675cdac2.ttf) format("truetype");
 }
-
 .body {
   background: #f3f7fa;
-  font-family: 'Open sans', sans-serif;
+  font-family: "Open sans", sans-serif;
 }
 
 .wrapper {
@@ -23,7 +25,7 @@
   margin: 40px auto 27px;
 }
 
-.main { 
+.main {
   width: 100%;
   height: fit-content;
   display: flex;
@@ -31,12 +33,12 @@
 }
 
 .options {
-  width: 30.76923076923%;
+  width: 30.7692307692%;
   height: 252px;
   background: #fff;
   border-radius: 5px;
   color: #4A4A4A;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .options__titile {
@@ -75,14 +77,14 @@ label:hover {
   z-index: -1;
 }
 
-.checkbox_hid+label {
+.checkbox_hid + label {
   display: inline-flex;
   align-items: center;
   user-select: none;
 }
 
 .checkbox_hid + label::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 18px;
   height: 18px;
@@ -98,11 +100,11 @@ label:hover {
 
 .checkbox_hid:checked + label::before {
   border-color: #2196f3;
-  background: url('../assets/shape.svg');
-} 
+  background: url(79dcf5e6ee66319e06b8.svg);
+}
 
 .content {
-  width: 66.57824933687%;
+  width: 66.5782493369%;
   height: fit-content;
 }
 
@@ -116,7 +118,7 @@ label:hover {
   border: 1px solid #dfe5ec;
   border-radius: 0;
   background: #fff;
-  font-family: 'OpenSans', sans-serif;
+  font-family: "OpenSans", sans-serif;
   font-weight: 600;
   font-size: 12px;
   color: #4a4a4a;
@@ -143,8 +145,6 @@ label:hover {
 }
 
 .ticket {
-  // display: flex;
-  // flex-direction: column;
   height: 184px;
   width: 100%;
   background: #fff;
@@ -159,17 +159,15 @@ label:hover {
   transform: scale(1.05) translate(-5%, 0);
   border: 1px solid #43bfd3;
   padding: 0;
-
-  .ticket__price {
-    padding: 0;
-  }
+}
+.ticket:hover .ticket__price {
+  padding: 0;
 }
 
 .ticket__price,
 .ticket__info {
   display: flex;
   justify-content: space-between;
-  
 }
 
 .ticket__info {
@@ -179,12 +177,11 @@ label:hover {
 .ticket__price {
   padding-top: 25px;
   margin: 20px 20px 16px 20px;
-
-  img {
-    position: relative;
-    right: 10px;
-    bottom: 5px;
-  }
+}
+.ticket__price img {
+  position: relative;
+  right: 10px;
+  bottom: 5px;
 }
 
 .ticket__price h3 {
@@ -198,9 +195,8 @@ label:hover {
   font-weight: 600;
   line-height: 18px;
   width: 30%;
-
-  span {
-    font-size: 14px;
-    color: #4a4a4a;
-  }
+}
+.info span {
+  font-size: 14px;
+  color: #4a4a4a;
 }

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "server": "json-server server.json"
+    "server": "json-server server.json",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
