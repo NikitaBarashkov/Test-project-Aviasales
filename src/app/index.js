@@ -6,6 +6,8 @@ import { propertiesTicket } from './propertiesTicket';
 
 const btnCheapTikets = document.querySelector('.btn_cheap-tickets');
 const btnFastTikets = document.querySelector('.btn_fast-tickets'); 
+const optionsBlock = document.querySelector('.options');
+const btnOptions = document.querySelector('.options__btn');
 
 window.addEventListener('load', () => {
   getTickets();
@@ -18,11 +20,16 @@ document.querySelector('.btn-block')
       btnFastTikets.classList.toggle('btn_active');
       getTickets();
     }
-  })
+})
 
 document.querySelectorAll('.checkbox_hid')
   .forEach(option => {
     option.addEventListener('change', getTickets);
+})
+
+btnOptions.addEventListener('click', () => {
+  btnOptions.classList.toggle('options__btn_active');
+  optionsBlock.classList.toggle('options_active');
 })
 
 async function getTickets() {
@@ -44,7 +51,7 @@ async function getTickets() {
       response.sort(sortByTime);
     }
     const tickets = response.slice(0, 5);
-    console.log(tickets)
+    
     for (let key in tickets) {
       const ticket = propertiesTicket(tickets[key]); 
       createTicket(ticket);

@@ -13,6 +13,10 @@
   font-family: 'Open sans', sans-serif;
 }
 
+.body::-webkit-scrollbar {
+  width: 0;
+}
+
 .wrapper {
   width: 754px;
   margin: 0 auto;
@@ -40,8 +44,35 @@
 }
 
 .options__titile {
+  display: inline-block;
   font-size: 12px;
   margin: 20px 20px 8px 20px;
+}
+
+.options__btn {
+  opacity: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #2196f3;
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  transition: 0.8s;
+  background: transparent;
+  cursor: pointer;
+}
+
+.options__btn_active {
+  transform: rotate(90deg);
+}
+
+.options__img {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: 7%;
+  left: 3%; 
 }
 
 .options__list {
@@ -54,6 +85,7 @@
   padding-left: 20px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .options__item:hover {
@@ -75,33 +107,34 @@ label:hover {
   z-index: -1;
 }
 
-.checkbox_hid+label {
+.checkbox_hid + label {
   display: inline-flex;
   align-items: center;
-  user-select: none;
 }
 
 .checkbox_hid + label::before {
-  content: '';
+  content: ' ';
   display: inline-block;
   width: 18px;
   height: 18px;
   border: 1px solid #9abbce;
   border-radius: 2px;
   margin-right: 10px;
-  flex-shrink: 0;
-  flex-grow: 0;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 50% 50%;
 }
 
 .checkbox_hid:checked + label::before {
   border-color: #2196f3;
-  background: url('../assets/shape.svg');
-  background: url('../assets/shape-checked.png');
-  background-size: auto;
 } 
+
+.checkbox__shape {
+  opacity: 0;
+  position: absolute;
+  left: 24px;
+}
+
+.checkbox_hid:checked + label ~ .checkbox__shape {
+  opacity: 1;
+}
 
 .content {
   width: 66.57824933687%;
@@ -145,8 +178,6 @@ label:hover {
 }
 
 .ticket {
-  // display: flex;
-  // flex-direction: column;
   height: 184px;
   width: 100%;
   background: #fff;
@@ -165,6 +196,7 @@ label:hover {
   .ticket__price {
     padding: 0;
   }
+
 }
 
 .ticket__price,
@@ -187,6 +219,7 @@ label:hover {
     right: 10px;
     bottom: 5px;
   }
+
 }
 
 .ticket__price h3 {
@@ -205,4 +238,183 @@ label:hover {
     font-size: 14px;
     color: #4a4a4a;
   }
+
+}
+
+@media screen and (max-width: 800px) {
+  
+  .wrapper {
+    width: 650px;
+  }
+
+  .options__titile {
+    margin: 15px 15px 8px 15px;
+  }
+
+}
+
+@media screen and (max-width: 680px) {
+  
+  .wrapper {
+    width: 100%;
+  }
+
+  .main {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .options {
+    width: 66.5782493369%;
+    height: 40px;
+    overflow: hidden;
+    transition: 0.8s ease;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .options:hover::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .options__btn {
+    opacity: 1;
+  }
+
+  .content {
+    position: relative;
+    top: 50px;
+  }
+
+  .ticket:hover {
+    transform: scale(1.02) translate(0, -5%);
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .options,
+  .content {
+    width: 80%;
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+
+  .header {
+    margin: 25px auto 15px;
+  }
+
+  .options,
+  .content {
+    width: 90%;
+  }
+
+  .ticket__price {
+    margin: 20px 15px 16px 15px;
+    padding-top: 20px;
+  }
+
+  .ticket__info {
+    margin: 0 15px 12px;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+
+  .btn-block {
+    height: 40px;
+  }
+
+  .options__titile,
+  .btn {
+    font-size: 11px;
+  }
+
+  .ticket__price h3 {
+    font-size: 20px;
+  }
+
+  .info {
+    font-size: 10px;
+
+    span {
+      font-size: 12px;
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 350px) {
+
+  .header {
+    margin: 20px auto 10px;
+  }
+
+  .options__titile,
+  .btn {
+    font-size: 10px;
+  }
+
+  .options__btn {
+    width: 26px;
+    height: 26px;
+    right: 10px;
+    top: 7px;
+  }
+
+  .options__img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .options__list {
+    font-size: 11px;
+  }
+
+  .options__item {
+    height: 35px;
+  }
+
+  .ticket {
+    height: 150px;
+  }
+
+  .ticket__price {
+    margin: 20px 12px 10px 12px;
+    padding-top: 15px;
+
+    img {
+      width: 80px;
+    }
+
+    h3 {
+      font-size: 17px;
+    }
+
+  }
+  
+  .ticket__info {
+    margin: 0 12px 10px;
+  }
+
+  .info {
+    width: 33%;
+  }
+
+  .info:nth-child(2) {
+    width: 20%;
+  }
+
+}
+
+.options_active { 
+  overflow: auto;
+  height: 245px;
+  border: 1px solid #2196F3;
 }
