@@ -38,12 +38,12 @@ async function getTickets() {
     outputTikects.forEach(ticket => ticket.remove())
   } 
 
-  const response = await fetch('http://localhost:3000/tickets');
+  const response = await fetch('https://nikitabarashkov.github.io/db-server/db.json');
   const data = await response.json();
 
   if (data) { 
     const optionsTransfer = getOptions();
-    const response = filterTickets(data, optionsTransfer);
+    const response = filterTickets(data.tickets, optionsTransfer);
     
     if (document.querySelector('.btn_cheap-tickets').classList.contains('btn_active')) {
       response.sort(sortByPrice);
